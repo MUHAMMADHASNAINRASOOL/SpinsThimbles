@@ -124,15 +124,15 @@ body {
     margin-top: 20px;
 }
 
-.menu-container::before {
-    width: 100%;
-    right: 0;
-    left: 0;
-    background: url("https://cdngam.com/mfs/game-thimbles/line98be84acb7e4.png") no-repeat;
-    top: -1px;
-    content: "";
-    position: absolute;
+hr {
+    width: 140%;
+    border: none;
     height: 1px;
+    /* Maximum thickness at the center */
+    background: radial-gradient(ellipse at center, white 0%, transparent 50%);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    margin: 20px 0;
 }
 
 .ball-btn {
@@ -248,7 +248,7 @@ body {
     height: 100%;
     background-color: rgba(0, 0, 0, 1);
     /* Semi-transparent background */
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     z-index: 999;
