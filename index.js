@@ -49,24 +49,34 @@ document.addEventListener("DOMContentLoaded", function () {
             cups.forEach((cup) => {
                 cup.style.transform = 'translateY(-50px)'; // Adjust slide distance as needed
             });
-
+    
             // Show the ball under the correct cup
             const cupIndex = currentCupPositions.indexOf(ballPosition);
             const ball = balls[cupIndex];
             ball.style.display = 'block';
-
+    
             // Set cupsAreUp to true
             cupsAreUp = true;
-
+    
             // Wait for the slide-up animation to complete
             setTimeout(() => {
+                // Fade out the silhouette after a tiny delay
+                const cupContainer = cups[cupIndex];
+                const silhouette = cupContainer.querySelector('.cup-silhouette');
+    
+                // Add a small delay before starting the fade-out
+                setTimeout(() => {
+                    silhouette.style.opacity = 0;
+                }, 200); // Delay before fading out the silhouette (200 milliseconds)
+    
                 // Re-enable the play button
                 playButton.disabled = false;
-
+    
                 resolve(); // Resolve the promise
             }, 500); // Duration of the slide-up animation
         });
     }
+    
 
     // New function to slide cups down and hide the ball
     function slideCupsDown() {
