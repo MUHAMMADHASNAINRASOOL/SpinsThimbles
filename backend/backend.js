@@ -23,7 +23,7 @@ bot.on('message', (msg) => {
 
   if (msg.text.toLowerCase() === '/start') {
     bot.sendPhoto(chatId, './spinscasino_thimbles_logo_standard.png', {
-      caption: 'Welcome to SpinsCasino Thimbles game hack - 🤖AI Thimbles prediction mini-app♥️\nTo start the mini-app, press the button below 👇',
+      caption: 'Welcome to SpinsCasino Thimbles game hack - 🤖AI Thimbles prediction mini-app\nTo start the mini-app, press the button below 👇',
       reply_markup: {
         inline_keyboard: [[
           { text: 'Open App', web_app: { url: 'https://spinsthimbles.netlify.app/' } }]

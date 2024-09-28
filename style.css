@@ -210,7 +210,6 @@ hr {
     transition: opacity 0.2s linear;
 }
 
-.play-btn-text:hover::before,
 .play-btn-text:active::before {
     opacity: 0.6;
     /* Increase opacity to make it brighter */
@@ -248,7 +247,7 @@ hr {
     height: 100%;
     background-color: rgba(0, 0, 0, 1);
     /* Semi-transparent background */
-    display: none;
+    display: flex;
     justify-content: center;
     align-items: center;
     z-index: 999;

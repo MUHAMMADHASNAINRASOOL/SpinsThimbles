@@ -1,8 +1,9 @@
 {
   "name": "robisthimbles",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "backend.js",
   "scripts": {
+    "start": "node backend.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
