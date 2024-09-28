@@ -1,0 +1,371 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    pointer-events: none; /* Disables any interaction on the image */
+    user-select: none; /* Prevents users from selecting the image */
+}
+
+body {
+    height: 100vh;
+    background: url("https://cdngam.com/mfs/game-thimbles/bg3bd4ee4a35f45.jpg") 0 0 / cover no-repeat;
+    padding: 20px;
+    color: white;
+    font-family: "Roboto", sans-serif;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.game-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.game-container::before {
+    background: url("https://cdngam.com/mfs/game-thimbles/table-shadcc93d415e594.png") 0 0 / 100% 100% no-repeat;
+    content: "";
+    width: 100%;
+    height: auto;
+}
+
+.heading-container {
+    position: absolute;
+    top: 150px;
+    text-align: center;
+}
+
+.heading {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-self: center;
+    gap: 5px;
+}
+
+.thimbles-container {
+    width: 100%;
+    height: 100px;
+    position: relative;
+    margin: 0 auto;
+}
+
+.cup-container {
+    width: 20%;
+    position: absolute;
+    transition: left 0.8s ease-in-out, transform 0.5s ease-in-out;
+    z-index: 2;
+}
+
+
+.thimples-cups {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.cup-silhouette {
+    position: absolute;
+    top: -6%;
+    left: -7.5%;
+    width: 115%;
+    height: auto;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    pointer-events: none;
+}
+
+.ball {
+    position: absolute;
+    width: 10%;
+    height: auto;
+    z-index: 1;
+    bottom: 5px;
+    transform: translateX(50%);
+    display: none;
+}
+
+#cup1 {
+    left: 0;
+}
+
+#cup2 {
+    left: 50%;
+    /* Centered cup */
+}
+
+#cup3 {
+    left: 100%;
+    /* Right cup */
+}
+
+.menu-container {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 0px;
+    margin-top: 20px;
+}
+
+.menu-container::before {
+    width: 100%;
+    right: 0;
+    left: 0;
+    background: url("https://cdngam.com/mfs/game-thimbles/line98be84acb7e4.png") no-repeat;
+    top: -1px;
+    content: "";
+    position: absolute;
+    height: 1px;
+}
+
+.ball-btn {
+    background: linear-gradient(180deg, hsl(0, 0%, 100%), hsl(202, 10%, 47%) 58%, hsl(206, 35%, 13%));
+    border-color: #fff;
+    text-shadow: 0em 0em .125em #cfdae3;
+    padding: .125em .5em;
+    margin: 0em .3125em;
+    border: .125em solid #81838d;
+    border-radius: .4375em;
+    box-shadow: inset 0em 0em .1875em 0 rgba(41, 58, 71, .75);
+    text-align: center;
+    text-decoration: none;
+    color: #2a3f4b;
+    font-size: inherit;
+    outline: none;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 24px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    position: relative;
+}
+
+.ball-btn img {
+    width: 15%;
+    height: auto;
+}
+
+.ball-btn::before {
+    right: 0;
+    left: 0;
+    border-radius: .25em;
+    background: url("https://cdngam.com/mfs/game-thimbles/bet-btndd37b7b6a0fc.png") 50% / cover no-repeat;
+    content: "";
+    opacity: .4;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    box-sizing: border-box;
+}
+
+.play-btn {
+    min-width: 210px;
+    height: 45px;
+    padding: 10px;
+    margin: .9375em 0em 0em;
+    border: .125em solid #567321;
+    border-radius: .4375em;
+    background: #759e2e;
+    text-align: center;
+    text-shadow: 0em 0em .0555555556em #405819;
+    position: relative;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 700;
+    white-space: nowrap;
+    color: white;
+}
+
+.play-btn-text::before {
+    right: 0;
+    left: 0;
+    border-radius: .25em;
+    background: url("https://cdngam.com/mfs/game-thimbles/btn-start1b9206b65d75.png") 50% / cover no-repeat;
+    transition: .2s linear;
+    content: "";
+    opacity: .2;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    box-sizing: border-box;
+}
+
+@keyframes shuffle {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(50px);
+    }
+
+    50% {
+        transform: translateX(-50px);
+    }
+
+    75% {
+        transform: translateX(50px);
+    }
+}
+
+.shuffling {
+    animation: shuffle 1s ease-in-out infinite;
+}
+
+.menu-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 1);
+    /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    /* Ensure it overlays other content */
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Hidden state for fade-out animation */
+.menu-screen.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Menu Content */
+.menu-content {
+    background-color: #1a1a1a;
+    /* Match app styling */
+    padding: 30px 0;
+    border-radius: 10px;
+    text-align: center;
+    color: #fff;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-content h2 {
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.menu-content h2 img {
+    width: 25%;
+    height: auto;
+}
+
+#loginForm {
+    width: 75%;
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    background-color: #2a2a2a;
+    color: #fff;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #9acd32;
+    /* Lighter green for focus */
+    box-shadow: 0 0 5px rgba(154, 205, 50, 0.5);
+}
+
+.error-message {
+    color: #e74c3c;
+    /* Error color */
+    font-size: 12px;
+    height: 14px;
+    /* Reserve space for the message */
+    margin-top: 5px;
+}
+
+/* Login Button */
+.login-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #759e2e;
+    /* Match the play button color */
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    position: relative;
+}
+
+.login-button:hover {
+    background-color: #567321;
+}
+
+.login-button::before {
+    right: 0;
+    left: 0;
+    border-radius: .25em;
+    background: url("https://cdngam.com/mfs/game-thimbles/btn-start1b9206b65d75.png") 50% / cover no-repeat;
+    transition: .2s linear;
+    content: "";
+    opacity: .2;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    box-sizing: border-box;
+}
+
+.link-container {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: white;
+}
+
+.link-container a {
+    color: white;
+    font-size: 14px;
+}
