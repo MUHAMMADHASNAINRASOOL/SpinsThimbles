@@ -14,7 +14,7 @@ body {
     padding: 20px;
     color: white;
     font-family: "Roboto", sans-serif;
-    background-size: 250%;
+    background-size: 300%;
 }
 
 .container {
@@ -96,6 +96,7 @@ body {
     bottom: 5px;
     transform: translateX(50%);
     display: none;
+    filter: brightness(1.5);
 }
 
 #cup1 {
@@ -191,7 +192,6 @@ body {
     text-transform: uppercase;
     font-size: 20px;
     font-weight: 700;
-    white-space: nowrap;
     color: white;
 }
 
@@ -207,6 +207,13 @@ body {
     top: 0;
     bottom: 0;
     box-sizing: border-box;
+    transition: opacity 0.2s linear;
+}
+
+.play-btn-text:hover::before,
+.play-btn-text:active::before {
+    opacity: 0.6;
+    /* Increase opacity to make it brighter */
 }
 
 @keyframes shuffle {

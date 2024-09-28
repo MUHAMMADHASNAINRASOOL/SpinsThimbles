@@ -41,23 +41,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function revealBall() {
         return new Promise((resolve) => {
-            // Get the cup that has the ball
-            const cupIndex = currentCupPositions.indexOf(ballPosition);
-            const cupContainer = cups[cupIndex];
-
-            // Slide up only the cup with the ball
-            cupContainer.style.transform = 'translateY(-50px)'; // Adjust slide distance as needed
+            // Slide up all cups
+            cups.forEach((cup) => {
+                cup.style.transform = 'translateY(-50px)'; // Adjust slide distance as needed
+            });
 
             // Show the ball under the correct cup
+            const cupIndex = currentCupPositions.indexOf(ballPosition);
             const ball = balls[cupIndex];
             ball.style.display = 'block';
 
             // Wait for the slide-up animation to complete
             setTimeout(() => {
-                // Keep the cup up for a moment (adjust delay as needed)
+                // Keep the cups up for a moment
                 setTimeout(() => {
-                    // Slide the cup back down
-                    cupContainer.style.transform = 'translateY(0)';
+                    // Slide all cups back down
+                    cups.forEach((cup) => {
+                        cup.style.transform = 'translateY(0)';
+                    });
 
                     // Wait for the slide-down animation to complete
                     setTimeout(() => {
@@ -69,10 +70,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
                         resolve(); // Resolve the promise
                     }, 500); // Duration of the slide-down animation
-                }, 1500); // Delay before the cup slides back down (ball remains visible)
+                }, 1500); // Delay before cups slide back down
             }, 500); // Duration of the slide-up animation
         });
     }
+
 
     // Function to shuffle the cups between valid positions
     function shuffleCups() {
