@@ -196,7 +196,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const passwordError = document.getElementById("passwordError");
 
     // Activation password for validation
-    const activationPassword = "rjUVR2stK8L9gRi";
+    const activationPassword = "rpt3322";
 
     loginForm.addEventListener("submit", function (e) {
         e.preventDefault(); // Prevent form submission
